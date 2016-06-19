@@ -1,0 +1,11 @@
+<taglib>
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>2.0</jsp-version>
+    <short-name>Date Picker TLD</short-name>
+    <uri>http://www.ibcs-primax.com/datePicker</uri>
+    <tag>
+        <name>date-picker</name>
+        <tag-class>com.ibcs.tag.DatePickerTagHandler</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+</taglib>

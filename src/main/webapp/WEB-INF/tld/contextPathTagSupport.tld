@@ -1,0 +1,11 @@
+<taglib>
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>2.0</jsp-version>
+    <short-name>Context Path Tag</short-name>
+    <uri>http://www.ibcs-primax.com/contextPath</uri>
+    <tag>
+        <name>path</name>
+        <tag-class>com.ibcs.tag.ContextPathTagHandler</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+</taglib>

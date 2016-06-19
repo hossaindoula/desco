@@ -1,0 +1,11 @@
+<taglib>
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>2.0</jsp-version>
+    <short-name>App Nav Menu TLD</short-name>
+    <uri>http://www.ibcs-primax.com/appNavMenu</uri>
+    <tag>
+        <name>appNav</name>
+        <tag-class>com.ibcs.tag.menu.AppNavigationMenuTagHandler</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+</taglib>

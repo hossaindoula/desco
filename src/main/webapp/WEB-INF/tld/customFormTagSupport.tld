@@ -1,0 +1,339 @@
+<taglib>
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>2.0</jsp-version>
+    <short-name>Custom Form Menu TLD</short-name>
+    <uri>http://www.ibcs-primax.com/iForm</uri>
+    <tag>
+        <name>iform</name>
+        <tag-class>com.ibcs.tag.form.CustomFormTagHandler</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>action</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>The name of the action to use
+                in the link, if not specified the default action will be
+                linked</description>
+        </attribute>
+        <attribute>
+            <name>controller</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>The name of the controller
+                to use in the link, if not specified the current controller will be
+                linked</description>
+        </attribute>
+        <attribute>
+            <name>id</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>The id to use in the link</description>
+        </attribute>
+        <attribute>
+            <name>fragment</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>The link fragment (often
+                called anchor tag) to use</description>
+        </attribute>
+        <attribute>
+            <name>mapping</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>The &lt;a href="../../guide/single.html#6.4.9 Named URL Mappings" class="guide"&gt;named URL mapping&lt;/a&gt; to use to rewrite the link</description>
+        </attribute>
+        <attribute>
+            <name>params</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>A map containing URL query
+                parameters</description>
+        </attribute>
+        <attribute>
+            <name>url</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>A map containing the
+                action,controller,id etc.</description>
+        </attribute>
+        <attribute>
+            <name>absolute</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>If set to "true" will prefix
+                the link target address with the value of the grails.serverURL
+                property from Config, or http://localhost:&lt;port&gt; if no value
+                in Config and not running in production.</description>
+        </attribute>
+        <attribute>
+            <name>base</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Sets the prefix to be added to
+                the link target address, typically an absolute server URL. This
+                overrides the behaviour of the &lt;code&gt;absolute&lt;/code&gt; property, if
+                both are specified.</description>
+        </attribute>
+        <attribute>
+            <name>name</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>A value to use for both the name
+                and id attribute of the form tag</description>
+        </attribute>
+        <attribute>
+            <name>useToken</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Set whether to send a token
+                in the request to handle duplicate form submissions. See &lt;a href="../../guide/single.html#6.1.11 Handling Duplicate Form Submissions" class="guide"&gt;Handling Duplicate Form Submissions&lt;/a&gt;</description>
+        </attribute>
+        <attribute>
+            <name>method</name>
+            <rtexprvalue>true</rtexprvalue>
+            <description>the form method to use, either 'POST' or 'GET'; defaults to 'POST'</description>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the action
+            </description>
+            <name>encodingType</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>model</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <name>iTextField</name>
+        <tag-class>com.ibcs.tag.form.CustomTextFieldTagHandler</tag-class>
+        <body-content>JSP</body-content>
+
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldName</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldClass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldTitle</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldValue</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldId</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldPlaceholder</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+    </tag>
+
+
+    <tag>
+        <name>iPasswordField</name>
+        <tag-class>com.ibcs.tag.form.PasswordTagHandler</tag-class>
+        <body-content>JSP</body-content>
+
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldName</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldClass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldTitle</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldValue</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldId</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldPlaceholder</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+    </tag>
+
+
+    <tag>
+        <name>iTextAreaField</name>
+        <tag-class>com.ibcs.tag.form.TextAreaTagHandler</tag-class>
+        <body-content>JSP</body-content>
+
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldName</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldClass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldTitle</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldValue</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldId</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldPlaceholder</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+    </tag>
+
+
+    <tag>
+        <name>iButtonField</name>
+        <tag-class>com.ibcs.tag.form.FormButtonTagHandler</tag-class>
+        <body-content>JSP</body-content>
+
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldName</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldClass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldTitle</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldValue</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldId</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                The value for this attribute is the model of the form
+            </description>
+            <name>fieldPlaceholder</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+    </tag>
+</taglib>
