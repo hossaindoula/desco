@@ -91,9 +91,12 @@ public class RequirementNoteViewManager extends BaseViewManager {
         metaDetail.put("required", true);
         metaDetailList.add(metaDetail);
 
+        meta = new HashMap<String, Object>();
         meta.put("detail", metaDetailList);
 
         metaList.add(meta);
+
+        System.out.println("metaList = " + metaList);
 
         return metaList;
     }

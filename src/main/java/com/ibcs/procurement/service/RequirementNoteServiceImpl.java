@@ -2,6 +2,7 @@ package com.ibcs.procurement.service;
 
 import com.ibcs.base.view.form.dto.ModelForm;
 import com.ibcs.procurement.dao.RequirementNoteDao;
+import com.ibcs.procurement.dto.RequirementNoteMasterDetailBean;
 import com.ibcs.procurement.model.RequirementNote;
 import com.ibcs.security.model.Token;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,24 +24,24 @@ public class RequirementNoteServiceImpl implements RequirementNoteService {
     private RequirementNoteDao requirementNoteDao;
 
 
-    public boolean save(RequirementNote o) {
-        return requirementNoteDao.create(o);
+    public boolean save(RequirementNoteMasterDetailBean o) {
+        return false;
     }
 
-    public boolean delete(RequirementNote o) {
-        return requirementNoteDao.delete(o);
+    public boolean delete(RequirementNoteMasterDetailBean o) {
+        return false;
     }
 
-    public boolean update(RequirementNote o) {
-        return requirementNoteDao.update(o);
+    public boolean update(RequirementNoteMasterDetailBean o) {
+        return false;
     }
 
-    public List<RequirementNote> findAll() {
-        return requirementNoteDao.findAll();
+    public List<RequirementNoteMasterDetailBean> findAll() {
+        return null;
     }
 
-    public RequirementNote get(Integer id) {
-        return requirementNoteDao.get(id);
+    public RequirementNoteMasterDetailBean get(Integer id) {
+        return null;
     }
 
     public ModelForm getModel() {

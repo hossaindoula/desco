@@ -88,6 +88,8 @@ public class UserViewManager extends BaseViewManager {
         meta.put("required", true);
         metaList.add(meta);
 
+        System.out.println("metaList = " + metaList);
+
         return metaList;
     }
 

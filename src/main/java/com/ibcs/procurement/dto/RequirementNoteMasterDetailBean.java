@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by hossain.doula on 5/16/2016.
  */
-public class RequirementNoteMasterDetail extends ModelForm implements Cloneable {
+public class RequirementNoteMasterDetailBean extends ModelForm implements Cloneable {
 
     private int departmentId;
     private int issuedBy;
@@ -114,5 +114,9 @@ public class RequirementNoteMasterDetail extends ModelForm implements Cloneable 
 
     public void setPreviousYearConsumption(List<Integer> previousYearConsumption) {
         this.previousYearConsumption = previousYearConsumption;
+    }
+
+    public ModelForm getModelForm() {
+        return new RequirementNoteMasterDetailBean();
     }
 }

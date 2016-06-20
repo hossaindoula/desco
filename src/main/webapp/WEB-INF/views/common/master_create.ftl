@@ -106,7 +106,9 @@
                                 <#list forms as formElement>
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label" for="form-field-1">
-                                            ${formElement.label}
+                                            <#if formElement.label??>
+                                                ${formElement.label}
+                                            </#if>
                                         </label>
                                         <div class="col-sm-9">
                                             <#if formElement.type == "text" || formElement.type == "password" || formElement.type == "email"
@@ -122,8 +124,17 @@
                                                 path="${formElement.id}"
                                                 cssClass="form-control" required="${formElement.required?string}"></@form.textarea>
                                             </#if>
+                                            <#if formElement.type == "date">
+                                                <div class="input-group" id="picker-container">
+                                                    <input type="text"
+                                                           data-date-format="dd-mm-yyyy"
+                                                           data-date-viewmode="years"
+                                                           class="form-control date-picker">
+                                                    <span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
+                                                </div>
+                                            </#if>
                                             <#if formElement.type == "select">
-                                                <@form.select id="form-field-select-3" class="form-control search-select"
+                                                <@form.select id="form-field-select-3" cssClass="form-control search-select"
                                                 path="${formElement.id}">
                                                     <option value="">Please select</option>
                                                     <#list formElement.id as selectVal>
@@ -170,86 +181,86 @@
                                             <form:errors path="${formElement.id}" class="control-label" />
                                         </div>
                                     </div>
-                                </#list>
-                                <#if formsMasterDetails??>
-                                    <table class="table table-hover" id="sample-table-1">
-                                        <thead>
-                                        <tr>
-                                            <th class="center">#</th>
-                                            <#list detail as formMetaElement>
-                                                <th>${formMetaElement.label}</th>
-                                            </#list>
-                                            <th></th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
+                                    <#if formElement.detail??>
+                                        <table class="table table-hover" id="sample-table-1">
+                                            <thead>
+                                            <tr>
+                                                <th class="center">#</th>
+                                                <#list formElement.detail as formMetaElement>
+                                                    <th>${formMetaElement.label}</th>
+                                                </#list>
+                                                <th>Actions</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
                                             <tr>
                                                 <td class="center">1</td>
-                                                <#list formsMasterDetails as formElement>
+                                                <#list formElement.detail as formDetailElement>
                                                     <td class="hidden-xs">
                                                         <div class="form-group">
                                                             <label class="col-sm-2 control-label" for="form-field-1">
-                                                            ${formElement.label}
+                                                                <#if formDetailElement??>
+                                                                    ${formDetailElement.label!}
+                                                                </#if>
                                                             </label>
-                                                            <div class="col-sm-9">
-                                                                <#if formElement.type == "text" || formElement.type == "password" || formElement.type == "email"
-                                                                || formElement.type == "number">
-                                                                    <input type="${formElement.type}" placeholder="${formElement.placeholder!}"
-                                                                           id="${formElement.id}" name="${formElement.id}" class="form-control"
-                                                                           required="${formElement.required?string}" >
+                                                            <div class="col-sm-3">
+                                                                <#if formDetailElement.type == "text" || formDetailElement.type == "password" || formDetailElement.type == "email"
+                                                                || formDetailElement.type == "number">
+                                                                    <input type="${formDetailElement.type}" placeholder="${formDetailElement.placeholder!}"
+                                                                           id="${formDetailElement.id}" name="${formDetailElement.id}" class="form-control"
+                                                                           required="${formDetailElement.required?string}" >
 
                                                                 </#if>
-                                                                <#if formElement.type == "textarea">
-                                                                    <@form.textarea placeholder="${formElement.placeholder!}"
-                                                                    id="${formElement.id}"
-                                                                    path="${formElement.id}"
-                                                                    cssClass="form-control" required="${formElement.required?string}"></@form.textarea>
+                                                                <#if formDetailElement.type == "textarea">
+                                                                    <@form.textarea placeholder="${formDetailElement.placeholder!}"
+                                                                    id="${formDetailElement.id}"
+                                                                    path="${formDetailElement.id}"
+                                                                    cssClass="form-control" required="${formDetailElement.required?string}"></@form.textarea>
                                                                 </#if>
-                                                                <#if formElement.type == "select">
+                                                                <#if formDetailElement.type == "select">
                                                                     <@form.select id="form-field-select-3" class="form-control search-select"
-                                                                    path="${formElement.id}">
+                                                                    path="${formDetailElement.id}">
                                                                         <option value="">Please select</option>
-                                                                        <#list formElement.id as selectVal>
+                                                                        <#list formDetailElement.id as selectVal>
                                                                             <option value="${selectVal_index}">${selectVal.value}</option>
                                                                         </#list>
                                                                     </@form.select>
                                                                 </#if>
-                                                                <#if formElement.type == "multiSelect">
+                                                                <#if formDetailElement.type == "multiSelect">
                                                                     <@form.select id="form-field-select-3" cssClass="form-control search-select"
                                                                     multiple="multiple"
-                                                                    path="${formElement.id}">
+                                                                    path="${formDetailElement.id}">
                                                                         <option value="">Please select</option>
-                                                                        <#list formElement.id as selectVal>
+                                                                        <#list formDetailElement.id as selectVal>
                                                                             <option value="${selectVal_index}">${selectVal.value}</option>
                                                                         </#list>
                                                                     </@form.select>
                                                                 </#if>
-                                                                <#if formElement.type == "fileUpload">
-                                                                    <input type="file" name="${formElement.id}" id="file" />
+                                                                <#if formDetailElement.type == "fileUpload">
+                                                                    <input type="file" name="${formDetailElement.id}" id="file" />
                                                                 <#--<@form.input id="input-simple"
                                                                 path="${formElement.id}" type="file"
                                                                 cssClass="file" />-->
                                                                 </#if>
-                                                                <#if formElement.type == "thumbFileUpload">
-                                                                    <@form.input id="simple" path="${formElement.id}" type="file" cssClass="file"/>
+                                                                <#if formDetailElement.type == "thumbFileUpload">
+                                                                    <@form.input id="simple" path="${formDetailElement.id}" type="file" cssClass="file"/>
                                                                 </#if>
-                                                                <#if formElement.type == "avatarFileUpload">
+                                                                <#if formDetailElement.type == "avatarFileUpload">
                                                                     <div id="kv-avatar-errors" class="center-block" style="display:none"></div>
                                                                     <div class="kv-avatar">
                                                                         <@form.input id="avatar" path="avatar" type="file" cssClass="file-loading"/>
                                                                     </div>
                                                                 </#if>
-                                                                <#if formElement.type == "ckEditor">
-                                                                    <@form.textarea cssClass="ckeditor form-control" cols="10" rows="10" path="${formElement.id}"></@form.textarea>
+                                                                <#if formDetailElement.type == "ckEditor">
+                                                                    <@form.textarea cssClass="ckeditor form-control" cols="10" rows="10" path="${formDetailElement.id}"></@form.textarea>
                                                                 </#if>
-                                                                <#if formElement.type == "toggle">
+                                                                <#if formDetailElement.type == "toggle">
                                                                     <div class="panel-body buttons-widget">
                                                                         <div class="make-switch" data-on="primary" data-off="info">
-                                                                            <@form.input type="checkbox" checked="true" path="${formElement.id}"/>
+                                                                            <@form.input type="checkbox" checked="true" path="${formDetailElement.id}"/>
                                                                         </div>
                                                                     </div>
                                                                 </#if>
-                                                                <form:errors path="${formElement.id}" class="control-label" />
                                                             </div>
                                                         </div>
                                                     </td>
@@ -288,9 +299,11 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                        </tbody>
-                                    </table>
-                                </#if>
+                                            </tbody>
+                                        </table>
+                                    </#if>
+                                </#list>
+
                                 <#if authHierarchyBtns??>
                                     <div class="btn-group">
                                         <button formnovalidate type="button" class="btn btn-purple">
