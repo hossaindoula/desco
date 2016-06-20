@@ -19,13 +19,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class RequirementNoteController extends BaseController {
 
     @Autowired
-    @Qualifier("requirementNoteService")
-    private RequirementNoteService requirementNoteService;
-
-    @Autowired
     private RequirementNoteValidator requirementNoteValidator;
 
-    public RequirementNoteController(){
+    @Autowired
+    public RequirementNoteController(@Qualifier("requirementNoteService") RequirementNoteService
+                                                 requirementNoteService){
         super();
         viewManager = RequirementNoteViewManager.getInstance();
         title = "Requirement note";

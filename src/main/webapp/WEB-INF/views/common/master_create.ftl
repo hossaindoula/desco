@@ -176,7 +176,7 @@
                                         <thead>
                                         <tr>
                                             <th class="center">#</th>
-                                            <#list formsMasterDetails.formsMetaDetails as formMetaElement>
+                                            <#list detail as formMetaElement>
                                                 <th>${formMetaElement.label}</th>
                                             </#list>
                                             <th></th>
@@ -231,8 +231,7 @@
                                                                 cssClass="file" />-->
                                                                 </#if>
                                                                 <#if formElement.type == "thumbFileUpload">
-                                                                    <@form.input id="simple" path="${formElement.id}" type="file" cssClass="file"
-                                                                    />
+                                                                    <@form.input id="simple" path="${formElement.id}" type="file" cssClass="file"/>
                                                                 </#if>
                                                                 <#if formElement.type == "avatarFileUpload">
                                                                     <div id="kv-avatar-errors" class="center-block" style="display:none"></div>
@@ -318,8 +317,12 @@
                                 <#elseif customBtn??>
                                     ${customBtnHtml}
                                 <#else>
-                                    <input type="submit" formnovalidate name="submit" value="Submit" class="btn btn-blue" style="margin-left: 181px;"/>
-                                    <input type="reset" formnovalidate name="reset" value="Clear" class="btn btn-default" style="margin-left: 10px;"/>
+                                    <#if submitValue??>
+                                        <input type="submit" formnovalidate name="submit" value="${submitValue}" class="btn btn-${color}" style="margin-left: 181px;"/>
+                                    <#else>
+                                        <input type="submit" formnovalidate name="submit" value="Submit" class="btn btn-blue" style="margin-left: 181px;"/>
+                                        <input type="reset" formnovalidate name="reset" value="Clear" class="btn btn-default" style="margin-left: 10px;"/>
+                                    </#if>
                                 </#if>
                             </#if>
                         </@form.form>
