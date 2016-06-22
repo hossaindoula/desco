@@ -6,6 +6,8 @@ package com.ibcs.security.service;
 
 import com.ibcs.base.service.DomainPersistentService;
 import com.ibcs.base.view.form.dto.ModelForm;
+import com.ibcs.finance.model.CashFlow;
+import com.ibcs.finance.model.FinancialStatement;
 import com.ibcs.security.dao.TokenDao;
 import com.ibcs.security.dao.UserDao;
 
@@ -50,6 +52,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public User findByUserCodeAndPassword(String username, String password) {
         User user;
         try{
+            CashFlow c = new CashFlow();
+            c.getName();
             UserBean userBean = new UserBean();
             userBean.setUsername(username);
             userBean.setPassword(password);

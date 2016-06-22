@@ -181,6 +181,8 @@
                                             <form:errors path="${formElement.id}" class="control-label" />
                                         </div>
                                     </div>
+
+
                                     <#if formElement.detail??>
                                         <table class="table table-hover" id="sample-table-1">
                                             <thead>
@@ -303,7 +305,6 @@
                                         </table>
                                     </#if>
                                 </#list>
-
                                 <#if authHierarchyBtns??>
                                     <div class="btn-group">
                                         <button formnovalidate type="button" class="btn btn-purple">

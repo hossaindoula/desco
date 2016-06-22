@@ -19,10 +19,10 @@ public abstract class FinancialStatement extends BaseModel<FinancialStatement>{
 
     private String name;
 
-    public FinancialStatement() {
+    public FinancialStatement(){
     }
 
-    public String getName() {
+    public String getName(){
         return name;
     }
 
